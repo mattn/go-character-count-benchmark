@@ -11,7 +11,7 @@ This is a personal project to get benchmark result to compare following.
 
 * use :range str to iterate characters from string.
 
-> This don't copy any.
+> This don't copy any. using utf8.RuneCountInString().
 
 Result:
 -------
