@@ -2,6 +2,7 @@ package count_test
 
 import (
 	. "count"
+	. "utf8"
 	"testing"
 )
 
@@ -15,9 +16,9 @@ func BenchmarkLenViaIntArr(b *testing.B) {
 	}
 }
 
-func BenchmarkLenViaForRange(b *testing.B) {
+func BenchmarkRuneCount(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		if LenViaForRange(benchMarkString) != 20 {
+		if RuneCountInString(benchMarkString) != 20 {
 			panic("unexpected result")
 		}
 	}
