@@ -1,0 +1,22 @@
+This is benchmark for manipulating characters of string.
+
+Introduction:
+-------------
+
+This is a personal project to get benchmark result to compare following.
+
+* use []int(str)
+* use :range str
+
+Result:
+-------
+
+    # gomake bench
+    gotest -test.bench=. -test.run="Do not run tests"
+    rm -f _test/count.a
+    rm -f _test/count.a
+    gopack grc _test/count.a _gotest_.8
+    testing: warning: no tests to run
+    PASS
+    count_test.BenchmarkCharacterCount1     1000000000               0.56 ns/op
+    count_test.BenchmarkCharacterCount2     1000000000               0.39 ns/op
