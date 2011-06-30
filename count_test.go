@@ -6,19 +6,26 @@ import (
 )
 
 const benchMarkString = "Hello World, こんにちわ世界"
-const benchMarkCount = 1000000
 
-func BenchmarkCharacterCount1(b *testing.B) {
-	for i := 0; i < benchMarkCount; i++ {
-		if Count1(benchMarkString) != 20 {
+func BenchmarkLenViaIntArr(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		if LenViaIntArr(benchMarkString) != 20 {
 			panic("unexpected result")
 		}
 	}
 }
 
-func BenchmarkCharacterCount2(b *testing.B) {
-	for i := 0; i < benchMarkCount; i++ {
-		if Count2(benchMarkString) != 20 {
+func BenchmarkLenViaForRange(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		if LenViaForRange(benchMarkString) != 20 {
+			panic("unexpected result")
+		}
+	}
+}
+
+func BenchmarkLenViaUTF8(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		if LenViaUTF8(benchMarkString) != 20 {
 			panic("unexpected result")
 		}
 	}

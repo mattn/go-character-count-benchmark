@@ -1,15 +1,26 @@
 package count
 
-//Count1 convert string to int array.
-func Count1(s string) int {
+//LenViaIntArr convert string to int array.
+func LenViaIntArr(s string) int {
 	return len([]int(s))
 }
 
-//Count2 count characters of string.
-func Count2(s string) int {
+//LenViaForRange characters of string.
+func LenViaForRange(s string) int {
 	c := 0
 	for _, _ = range s {
 		c++
+	}
+	return c
+}
+
+//LenViaUTF8 counts the non-0b10xxxxxx bytes of the string.
+func LenViaUTF8(s string) int {
+	c := 0
+	for i := 0; i < len(s); i++ {
+		if (s[i] & 0xC0) != 0x80 {
+			c++
+		}
 	}
 	return c
 }
