@@ -5,8 +5,13 @@ Introduction:
 
 This is a personal project to get benchmark result to compare following.
 
-* use []int(str)
-* use :range str
+* use []int(str) to distinct characters from string.
+
+> This make int slice.
+
+* use :range str to iterate characters from string.
+
+> This don't copy any.
 
 Result:
 -------
@@ -15,8 +20,10 @@ Result:
     gotest -test.bench=. -test.run="Do not run tests"
     rm -f _test/count.a
     rm -f _test/count.a
-    gopack grc _test/count.a _gotest_.8
+    gopack grc _test/count.a _gotest_.8 
     testing: warning: no tests to run
     PASS
-    count_test.BenchmarkCharacterCount1     1000000000               0.56 ns/op
-    count_test.BenchmarkCharacterCount2     1000000000               0.39 ns/op
+    count_test.BenchmarkLenViaIntArr	 5000000	       580 ns/op
+    count_test.BenchmarkRuneCount	10000000	       299 ns/op
+    count_test.BenchmarkLenViaUTF8	20000000	       112 ns/op
+    
